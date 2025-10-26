@@ -1,10 +1,20 @@
 package com.devsenior.jorge.model;
 
 public class Copia {
+    private static int contador = 0;
     private Integer identificador;
     private EstadoCopia estado;
     private Libro libro;
 
+    public Copia(Libro libro){
+        this(libro, EstadoCopia.BIBLIOTECA);
+    }
+
+    public Copia(Libro libro,EstadoCopia estado){
+        this.libro = libro;
+        this.estado = estado;
+        this.identificador =++contador;  
+    }
     public Integer getIdentificador() {
         return identificador;
     }
@@ -25,8 +35,10 @@ public class Copia {
         return libro;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public static int getContador(){
+        return contador;
     }
+
+
 
 }
